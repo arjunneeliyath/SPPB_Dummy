@@ -1,0 +1,17 @@
+# Taking ubuntu as base image for the final image
+FROM escoacrprod01.azurecr.io/ubuntu/nodejs:10.x
+
+WORKDIR /app
+
+#COPY .npmrc /app/
+COPY package*.json /app/
+
+
+COPY . /app/
+
+# Port to listener
+EXPOSE 3000
+
+EXPOSE 7000
+#Starting the application
+CMD [ "/bin/sh", "npmscripts.sh" "dev" ]

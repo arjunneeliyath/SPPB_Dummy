@@ -1,0 +1,9 @@
+export { default as help } from './help.svg';
+export { default as email } from './email.svg';
+export { default as logo } from './1280px-Albertsons_logo.svg.png';
+export { default as lookup } from './Lookup.svg';
+export { default as notification } from './Notification.svg';
+export { default as bin } from './Bin.svg';
+export { default as pencil } from './Pen.svg';
+export { default as view } from './View.svg';
+export { default as camera } from './Camera.svg';

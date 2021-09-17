@@ -1,0 +1,130 @@
+{
+    "name": "qcr",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@albertsons-authn/abs-node-authn": "^1.1.210805-mr40",
+        "@azure/msal-browser": "^2.14.2",
+        "@azure/msal-react": "^1.0.0",
+        "@date-io/date-fns": "^1.3.13",
+        "@date-io/moment": "^1.3.13",
+        "@material-ui/core": "^4.12.2",
+        "@material-ui/icons": "^4.11.2",
+        "@material-ui/lab": "^4.0.0-alpha.60",
+        "@material-ui/pickers": "^3.3.10",
+        "@material-ui/styles": "^4.11.4",
+        "@progress/kendo-licensing": "^1.2.0",
+        "@progress/kendo-react-excel-export": "^4.8.0",
+        "axios": "^0.21.1",
+        "cookie-parser": "^1.4.5",
+        "custom-env": "^2.0.1",
+        "date-fns": "^2.0.0-beta.5",
+        "dotenv": "^8.2.0",
+        "env-cmd": "^10.1.0",
+        "express": "^4.17.1",
+        "formik": "^2.2.6",
+        "jwt-decode": "^3.1.2",
+        "material-table": "^1.69.3",
+        "moment": "^2.29.1",
+        "node-fetch-with-proxy": "^0.1.5",
+        "react": "^17.0.2",
+        "react-app-polyfill": "^2.0.0",
+        "react-device-detect": "^1.17.0",
+        "react-dom": "^17.0.2",
+        "react-redux": "^7.2.4",
+        "react-router": "^5.2.0",
+        "react-router-dom": "^5.2.0",
+        "react-scripts": "4.0.3",
+        "react-toastify": "^7.0.4",
+        "react-webcam": "^5.2.4",
+        "react-window": "^1.8.6",
+        "redux": "^4.1.0",
+        "redux-saga": "^1.1.3",
+        "sonarqube-scanner": "^2.8.0",
+        "typescript": "^4.2.4",
+        "uuid": "^8.3.1",
+        "web-vitals": "^1.1.1",
+        "yup": "^0.32.9"
+    },
+    "scripts": {
+        "startsrv": "(cd server  && node index.js)",
+        "startsrv:dev": "(cd src-msal-server  && node index.js)",
+        "buildsrv": "(npm run mkdirs && cp -r ./src-msal-server/* ./server  && cp -r ./src-msal-server/.env* ./server  )",
+        "mkdirs": "mkdir server",
+        "start": "./node_modules/.bin/env-cmd -f ./.env react-scripts start",
+        "start:dev": "./node_modules/.bin/env-cmd -f ./.env.local react-scripts start",
+        "build": "./node_modules/.bin/env-cmd -f ./.env react-scripts build",
+        "test": "./node_modules/.bin/react-scripts test --silent --watchAll=false --env=jsdom --coverage --testTimeout=50000 --testResultsProcessor jest-sonar-reporter",
+        "coverage": "CI=true ./node_modules/.bin/react-scripts test --silent --watchAll=false --env=jsdom --coverage --testResultsProcessor jest-sonar-reporter",
+        "coverage:dev": "react-scripts test --coverage --watchAll=false",
+        "coverage:prod": "react-scripts test --coverage --watchAll=false",
+        "test-headless": "echo \"None\"",
+        "eject": "react-scripts eject",
+        "test:sonar": "cross-env CI=true ./node_modules/.bin/react-scripts test --testTimeout=50000 --silent --watchAll=false --env=jsdom --coverage --testResultsProcessor jest-sonar-reporter",
+        "sonar": "node sonar-project.js",
+        "lint": "eslint \"**/*.{ts,tsx}\"",
+        "prettier": "prettier --write \"src/**/*.{ts,tsx,css,html}\"",
+        "prettier:check": "prettier --config .prettierrc --check \"src/**/*.{ts,tsx,css,html,json}\"",
+        "husky": "lint-staged",
+        "husky-test": "env-cmd -f ./.husky/.config react-scripts test",
+        "prepare": "husky install"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "jest": {
+        "coveragePathIgnorePatterns": [
+            "src/interfaces",
+            "src/end-points",
+            "src/utils/interceptors"
+        ]
+    },
+    "lint-staged": {
+        "*.{ts,tsx,css,html,json}": [
+            "prettier --write",
+            "git add"
+        ]
+    },
+    "jestSonar": {
+        "reportPath": "reports",
+        "reportFile": "test-report.xml",
+        "indent": 4
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "@testing-library/jest-dom": "^5.12.0",
+        "@testing-library/react": "^11.2.6",
+        "@testing-library/user-event": "^12.8.3",
+        "@types/jest": "^26.0.23",
+        "@types/node": "^12.20.11",
+        "@types/react": "^17.0.4",
+        "@types/react-dom": "^17.0.3",
+        "@types/react-router-dom": "^5.1.7",
+        "@types/react-window": "^1.8.5",
+        "@types/redux": "^3.6.0",
+        "@types/redux-saga": "^0.10.5",
+        "@typescript-eslint/eslint-plugin": "^4.23.0",
+        "@typescript-eslint/parser": "^4.23.0",
+        "env-cmd": "^10.1.0",
+        "eslint": "^7.26.0",
+        "eslint-plugin-react": "^7.23.2",
+        "husky": "^6.0.0",
+        "lint-staged": "^11.0.0",
+        "prettier": "^2.3.0",
+        "jest-sonar-reporter": "^2.0.0"
+    }
+}
